@@ -27,7 +27,7 @@ public class CglibTrans implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        if(method.isAnnotationPresent(Affair.class)){
+        if(!method.isAnnotationPresent(Affair.class)){
             methodProxy.invokeSuper(o, objects);
             return null;
         }
